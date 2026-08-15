@@ -1,0 +1,35 @@
+.home {
+  min-height: 100vh;
+  padding: 60px;
+  .homeworks {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(255, 255, 255, 0.76);
+    border-radius: 20px;
+    flex-direction: column;
+    padding: 10px;
+    background-color: #efa8b7ad;
+    .homework-title {
+      color: #0d1b2a;
+    }
+    .homework-description {
+      font-size: 18px;
+      color: #1b263b;
+    }
+
+    .homework-btn {
+      display: inline-block;
+      padding: 10px 18px;
+      border-radius: 8px;
+      text-decoration: none;
+      background-color: #eaac8b;
+      color:#355070;
+      &:hover{
+        background-color: #eaac8bd3;
+      }
+    }
+  }
+}
