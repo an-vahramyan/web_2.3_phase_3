@@ -1,0 +1,4 @@
+  My Photo (final) FINAL.JPG
+  report--2024.PDF
+     weird_spacing .txt
+  archive.tar.GZ
