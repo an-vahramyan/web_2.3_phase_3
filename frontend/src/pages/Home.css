@@ -1,6 +1,9 @@
 .home {
   min-height: 100vh;
   padding: 60px;
+  display: flex;
+  flex-direction: column;
+  gap:30px;
   .homeworks {
     display: flex;
     flex-wrap: wrap;

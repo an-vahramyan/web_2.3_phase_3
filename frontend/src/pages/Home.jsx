@@ -10,15 +10,31 @@ function Home() {
         <p className="homework-description">
           Table with user data and remove button
         </p>
-
-        <Link
-          to="/frontend/src/homeworks/Table_in_React"
-          className="homework-btn"
-        >
+        <Link to="table" className="homework-btn">
           Open homework
         </Link>
       </section>
-      
+
+      <section className="homeworks">
+        <h2 className="homework-title">Homework 02</h2>
+        <p className="homework-description">
+          Shop implementation with busket and product cards
+        </p>
+        <Link to="shop" className="homework-btn">
+          Open homework
+        </Link>
+      </section>
+
+      <section className="homeworks">
+        <h2 className="homework-title">Homework 03</h2>
+        <p className="homework-description">
+          Counter with typescript
+        </p>
+
+        <Link to="counter" className="homework-btn">
+          Open homework
+        </Link>
+      </section>
     </main>
   );
 }

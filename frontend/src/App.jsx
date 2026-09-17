@@ -3,6 +3,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import Home from "./pages/Home";
 import Table_in_React from "./homeworks/Table_in_React/App";
+import Shop from "./homeworks/Shop/App";
+import Counter from "./homeworks/Counter/App"
 import "./App.css";
 
 function App() {
@@ -10,7 +12,9 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/homeworks/table-in-react" element={<Table_in_React />} />
+        <Route path="/table" element={<Table_in_React />} />
+        <Route path="/shop" element={<Shop />} />
+        <Route path="/counter" element={<Counter />} />
       </Routes>
     </BrowserRouter>
   );
