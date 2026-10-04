@@ -1,0 +1,26 @@
+{
+  "name": "online_course_platform",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon src/server.js",
+    "start": "node src/server.js",
+    "speed": "noded src/speed.js"
+  },
+  "dependencies": {
+    "bcryptjs": "latest",
+    "dotenv": "latest",
+    "express": "latest",
+    "express-validator": "latest",
+    "jsonwebtoken": "latest",
+    "pg": "latest",
+    "sequelize": "latest"
+  },
+  "devDependencies": {
+    "nodemon": "latest"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs"
+}
