@@ -3,7 +3,7 @@ const AppError = require("../utils/AppError");
 const AUTH_ERRORS = require("../constants/errors/auth.errors");
 
 const validate = (roles) => [
-  ...rules,
+  ...roles,
   (req, res, next) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
