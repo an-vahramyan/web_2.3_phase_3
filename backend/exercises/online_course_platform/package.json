@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "nodemon src/server.js",
     "start": "node src/server.js",
-    "speed": "noded src/speed.js"
+    "seed": "node src/speed.js"
   },
   "dependencies": {
     "bcryptjs": "latest",

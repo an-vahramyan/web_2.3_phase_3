@@ -41,7 +41,7 @@ const Lesson = sequalize.define(
   {
     tableName: "lessons",
     timestamps: true,
-    indexes: [{ unique: true, fields: ["course_id", "order"] }],
+    indexes: [{ unique: true, fields: ["courseId", "order"] }],
   },
 );
 module.exports = Lesson;

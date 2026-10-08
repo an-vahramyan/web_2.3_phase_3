@@ -40,7 +40,7 @@ const Enrollment = sequelize.define(
     indexes: [
       {
         unique: true,
-        fields: ["user_id", "course_id"],
+        fields: ["userId", "courseId"],
       },
     ],
   },
