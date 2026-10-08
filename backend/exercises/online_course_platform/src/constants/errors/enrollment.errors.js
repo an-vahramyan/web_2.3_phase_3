@@ -1,4 +1,3 @@
-const { NOT_OWNER } = require("./course.errors");
 
 const ENROLLMENT_ERRORS = {
   NOT_FOUND: { statusCode: 404, message: "Enrollment or course not found" },
@@ -13,7 +12,7 @@ const ENROLLMENT_ERRORS = {
   INVALID_PROGRESS: {
     statusCode: 400,
     message:
-      "Progress must be between 0 and 100 and the enrolllment must be active",
+      "Progress must be between 0 and 100 and the enrollment must be active",
   },
   NOT_OWNER: {
     statusCode: 403,

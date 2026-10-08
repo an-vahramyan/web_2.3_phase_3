@@ -6,7 +6,7 @@ const USER_ERRORS = require("../constants/errors/user.errors");
 const listUsers = async (role) => {
   if (role && !ALL_ROLES.includes(role)) {
     throw new AppError(
-      USER_ERRORS > USER_ERRORS.INVALID_ROLE.message,
+      USER_ERRORS.INVALID_ROLE.message,
       USER_ERRORS.INVALID_ROLE.statusCode,
     );
   }
@@ -28,11 +28,11 @@ const getUserById = async (id) => {
     include:
       preview.role === ROLES.INSTRUCTOR
         ? [{ model: Course, as: "courses" }]
-        : preview.rrole === ROLES.STUDENT
+        : preview.role === ROLES.STUDENT
           ? [
               {
                 model: Course,
-                as: "enrolledCourse",
+                as: "enrolledCourses",
                 through: { attributes: [] },
               },
             ]
@@ -82,7 +82,7 @@ const deleteUser = async ({ targetId, actorId }) => {
     );
   }
 
-  const user = User.findByPk(targetId);
+  const user = await User.findByPk(targetId);
   if (!user) {
     throw new AppError(
       USER_ERRORS.NOT_FOUND.message,

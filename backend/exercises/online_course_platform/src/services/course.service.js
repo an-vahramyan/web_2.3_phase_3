@@ -1,7 +1,7 @@
-const { AppError } = require("../utils/AppError");
+const  AppError  = require("../utils/AppError");
 const { Course, Lesson, User } = require("../models");
 const { ROLES } = require("../constants/roles");
-const COURSE_ERRORS = reqauire("../constants/errors/course.errors.js");
+const COURSE_ERRORS = require("../constants/errors/course.errors.js");
 
 const assertOwnerOrAdmin = (course, user) => {
   if (user.role !== ROLES.ADMIN && course.instructorId !== user.id) {

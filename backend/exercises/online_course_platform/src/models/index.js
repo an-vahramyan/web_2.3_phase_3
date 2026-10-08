@@ -5,7 +5,7 @@ const Enrollment = require("./enrollment.model");
 
 User.hasMany(Course, {
   as: "courses",
-  foreignKey: "instuctorId",
+  foreignKey: "instructorId",
   onDelete: "CASCADE",
 });
 Course.belongsTo(User, {
@@ -30,7 +30,7 @@ User.belongsToMany(Course, {
 });
 Enrollment.belongsTo(User, {
   as: "user",
-  foreignKey: "couseId",
+  foreignKey: "userId",
   onDelete: "CASCADE",
 });
 User.hasMany(Enrollment, {
@@ -43,5 +43,15 @@ Course.hasMany(Enrollment, {
   foreignKey: "courseId",
   onDelete: "CASCADE",
 });
-
+Course.belongsToMany(User, {
+  through: Enrollment,
+  as: "students",
+  foreignKey: "courseId",
+  otherKey: "userId",
+});
+Enrollment.belongsTo(Course, {
+  as: "course",
+  foreignKey: "courseId",
+  onDelete: "CASCADE",
+});
 module.exports = { User, Course, Lesson, Enrollment };

@@ -1,5 +1,5 @@
 const asyncHandler = require("../utils/asyncHandler");
-const courseService = require("../services/courseService");
+const courseService = require("../services/course.service");
 
 const listPublished = asyncHandler(async (req, res) => {
   const data = await courseService.listPublished(req.query);

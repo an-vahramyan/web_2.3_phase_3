@@ -1,7 +1,7 @@
 const { DataTypes } = require("sequelize");
 const { sequelize } = require("../config/database");
 
-const Lesson = sequalize.define(
+const Lesson = sequelize.define(
   "Lesson",
   {
     id: {
@@ -10,11 +10,11 @@ const Lesson = sequalize.define(
       autoIncrement: true,
     },
     title: {
-      type: DataTypes.STRRING(200),
+      type: DataTypes.STRING(200),
       allowNull: false,
       validate: { notEmpty: true },
     },
-    contet: {
+    content: {
       type: DataTypes.TEXT,
       allowNull: false,
     },
@@ -44,4 +44,5 @@ const Lesson = sequalize.define(
     indexes: [{ unique: true, fields: ["courseId", "order"] }],
   },
 );
+
 module.exports = Lesson;

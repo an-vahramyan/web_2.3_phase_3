@@ -1,4 +1,4 @@
-const { body, param, query, validitionresult } = require("express-validator");
+const { body, param, query, validationResult } = require("express-validator");
 const AppError = require("../utils/AppError");
 const AUTH_ERRORS = require("../constants/errors/auth.errors");
 
@@ -48,7 +48,7 @@ const login = validate([
 ]);
 
 const role = validate([
-  isParam,
+  idParam,
   body("role")
     .isIn(["admin", "instructor", "student"])
     .withMessage("role is invalid"),
@@ -94,11 +94,23 @@ const courseIdAndFilters = validate([
   query("category").optional().isString(),
   query("level").optional().isIn(["beginner", "intermediate", "advanced"]),
 ]);
-
+const lessonCreate = validate([
+  courseIdParam,
+  body("title").isString().trim().notEmpty().withMessage("title is required"),
+  body("content").isString().notEmpty().withMessage("content is required"),
+  body("videoUrl")
+    .optional()
+    .isURL()
+    .withMessage("videoUrl must be a valid URL"),
+  body("duration").isInt({ min: 1 }).withMessage("duration must be > 0"),
+  body("order")
+    .isInt({ min: 1 })
+    .withMessage("order must be a positive integer"),
+]);
 const lessonUpdate = validate([
-  isParam,
+  idParam,
   body("title").optional().isString().trim().notEmpty(),
-  body("conte").optional().isString().notEmpty(),
+  body("content").optional().isString().notEmpty(),
   body("videoUrl").optional({ nullable: true }).isURL(),
   body("duration").optional().isInt({ min: 1 }),
   body("order").optional().isInt({ min: 1 }),
@@ -107,12 +119,12 @@ const lessonUpdate = validate([
 const progress = validate([
   idParam,
   body("progress")
-    .isInt({ min0, max: 100 })
+    .isInt({ min: 0, max: 100 })
     .withMessage("progress must be 0-100"),
 ]);
 
 const enrollmentCreate = validate([
-  body(courseId)
+  body("courseId")
     .isInt({ min: 1 })
     .withMessage("courseId must be a positive integer"),
 ]);

@@ -101,7 +101,7 @@ const update = async (id, payload, user) => {
   if (payload.order !== undefined && payload.order !== lesson.order) {
     const exists = await Lesson.findOne({
       where: {
-        courseid: lesson.courseId,
+        courseId: lesson.courseId,
         order: payload.order,
         id: { [Op.ne]: lesson.id },
       },

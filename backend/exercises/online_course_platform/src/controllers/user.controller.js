@@ -3,7 +3,7 @@ const userService = require("../services/user.service");
 
 const list = asyncHandler(async (req, res) => {
   const users = await userService.listUsers(req.query.role);
-  res.json({ seccess: true, data: users });
+  res.json({ success: true, data: users });
 });
 
 const getById = asyncHandler(async (req, res) => {

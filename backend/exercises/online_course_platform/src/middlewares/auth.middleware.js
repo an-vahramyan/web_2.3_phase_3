@@ -6,7 +6,7 @@ const AUTH_ERRORS = require("../constants/errors/auth.errors");
 
 const getBearerToken = (req) => {
   const header = req.headers.authorization;
-  if (!header || !header.startsWith("Bearer")) return null;
+  if (!header || !header.startsWith("Bearer ")) return null;
   return header.slice(7).trim();
 };
 
@@ -16,7 +16,7 @@ const authenticate = asyncHandler(async (req, res, next) => {
   if (!token) {
     throw new AppError(
       AUTH_ERRORS.TOKEN_MISSING.message,
-      AUTH_ERRORS.TOKEN_MISSING.ststusCode,
+      AUTH_ERRORS.TOKEN_MISSING.statusCode,
     );
   }
   let payload;
@@ -47,7 +47,7 @@ const authenticate = asyncHandler(async (req, res, next) => {
   next();
 });
 
-const optionalAuthenticate = asyncHanler(async (req, res, next) => {
+const optionalAuthenticate = asyncHandler(async (req, res, next) => {
   const token = getBearerToken(req);
   if (!token) return next();
 
@@ -72,4 +72,4 @@ const authorize =
     next();
   };
 
-module.exports = { authenticate, optionalAuthenticate, authorize, ROLES };
+module.exports = { authenticate, optionalAuthenticate, authorize };
